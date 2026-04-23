@@ -32,16 +32,12 @@ function base32ToBytes(b32) {
 
 // --- Autofill ---
 async function fillCode() {
-  console.log("[2FA] fillCode called");
   const { totpSecret } = await browser.storage.local.get("totpSecret");
-  console.log("[2FA] secret found:", !!totpSecret);
   if (!totpSecret) return;
 
   const code = await generateTOTP(totpSecret);
-  console.log("[2FA] generated code:", code);
 
   const input = document.querySelector('#totp');
-  console.log("[2FA] input found:", !!input);
   if (!input) return;
 
   const nativeInputSetter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set;
@@ -50,7 +46,6 @@ async function fillCode() {
   input.dispatchEvent(new Event("change", { bubbles: true }));
 
   const form = input.closest("form");
-  console.log("[2FA] form found:", !!form);
   if (form) form.submit();
 }
 

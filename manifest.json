@@ -5,10 +5,15 @@
     "permissions": ["storage"],
     "host_permissions": ["https://idp.zid.tuwien.ac.at/*"],
     "content_scripts": [{
-    "matches": ["https://idp.zid.tuwien.ac.at/*"],
-    "js": ["content.js"]
+        "matches": ["https://idp.zid.tuwien.ac.at/*"],
+        "js": ["content.js"]
     }],
     "action": {
-    "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/lock-16.svg",
+            "48": "icons/lock-48.svg"
+        }
     }
+    
 }
