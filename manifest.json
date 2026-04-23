@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "TUWEL-MFA-Autofiller",
+    "version": "1.0",
+    "permissions": ["storage"],
+    "host_permissions": ["https://idp.zid.tuwien.ac.at/*"],
+    "content_scripts": [{
+    "matches": ["https://idp.zid.tuwien.ac.at/*"],
+    "js": ["content.js"]
+    }],
+    "action": {
+    "default_popup": "popup.html"
+    }
+}
